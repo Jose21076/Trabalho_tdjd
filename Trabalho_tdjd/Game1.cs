@@ -25,6 +25,7 @@ namespace Trabalho_tdjd
         public Chest chest;
         public List<Potion> potions;
         private int win_cond = 0;
+        private bool win = false;
 
         private Texture2D  player_t, enemie_t, background, chest_t, floor, potion, wall, wall_bot, wall_vert;
         public int tileSize = 32;
@@ -84,6 +85,17 @@ namespace Trabalho_tdjd
                 gameOver = false;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) Exit();
+
+            if (win == true)
+            {
+                if (Keyboard.GetState().IsKeyDown(Keys.Space) && currentLevel <= levels.Length)
+                {
+                    currentLevel++;
+                    Initialize();
+                    gameOver = false;
+                    win = false;
+                }
+            }
 
             base.Update(gameTime);
         }
@@ -164,12 +176,8 @@ namespace Trabalho_tdjd
             if (chest.stored_p == win_cond)
             {
                 gameOver = true;
+                win = true;
                 _spriteBatch.DrawString(font, "YOU WIN", new Vector2(level.GetLength(0) / 2, level.GetLength(1) / 2) * tileSize, Color.DarkGreen, 0f, Vector2.Zero, 1.3f, SpriteEffects.None, 0f);
-                if (Keyboard.GetState().IsKeyDown(Keys.Space) && currentLevel <= levels.Length)
-                {
-                    currentLevel++;
-                    Initialize();
-                }
             }
 
             if(player.Position == enemie.Position)

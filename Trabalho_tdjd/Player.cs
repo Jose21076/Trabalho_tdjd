@@ -35,25 +35,25 @@ namespace Trabalho_tdjd
                     {
                         position.X--;
                         delta = speed;
-                        if (!game.enemie.SearchPlayer(position)) game.enemie.move();
+                        //if (!game.enemie.SearchPlayer(position)) game.enemie.move();
                     }
                     else if (kState.IsKeyDown(Keys.W) || (kState.IsKeyDown(Keys.Up)))
                     {
                         position.Y--;
                         delta = speed;
-                        if (!game.enemie.SearchPlayer(position)) game.enemie.move();
+                        //if (!game.enemie.SearchPlayer(position)) game.enemie.move();
                     }
                     else if (kState.IsKeyDown(Keys.S) || (kState.IsKeyDown(Keys.Down)))
                     {
                         position.Y++;
                         delta = speed;
-                        if (!game.enemie.SearchPlayer(position)) game.enemie.move();
+                        //if (!game.enemie.SearchPlayer(position)) game.enemie.move();
                     }
                     else if (kState.IsKeyDown(Keys.D) || (kState.IsKeyDown(Keys.Right)))
                     {
                         position.X++;
                         delta = speed;
-                        if (!game.enemie.SearchPlayer(position)) game.enemie.move();
+                        //if (!game.enemie.SearchPlayer(position)) game.enemie.move();
                     }
                 }
 
